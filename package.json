@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dmatiasr/alquilarapi/issues"
   },
-  "homepage": "https://github.com/dmatiasr/alquilarapi#readme"
+  "homepage": "https://github.com/dmatiasr/alquilarapi#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
