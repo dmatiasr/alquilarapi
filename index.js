@@ -6,6 +6,7 @@ app.listen(3000, () => {
 });
 
 
-app.get('/', function (req, res) {
-  	res.send('<b>Hello Guy!, Im working<b>');
-});
+var route = require('./routes/mainroute');
+
+
+app.use('/', route)
