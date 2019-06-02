@@ -1,0 +1,13 @@
+## how to install dependencies ##
+
+npm install
+
+
+## how to run: ##
+
+node index.js
+
+
+## Overview ##
+
+alquilerapi is a API Node based for store information about rent for diferent places. alquilerapi used postgis for geo-data.
