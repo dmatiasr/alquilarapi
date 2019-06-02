@@ -3,9 +3,9 @@ const cookieParser = require('cookie-parser');
 const express = require("express");
 const app = express();
 
-
-app.listen(3000, () => {
- console.log("Server ON 3000");
+port = process.env.PORT || 3000;
+app.listen(port, () => {
+ console.log("Server Listening on "+ port+" port");
 });
 
 

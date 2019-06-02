@@ -3,7 +3,7 @@ routemain = express.Router()
 var propertyroute = require('./property'); 
 
 
-routemain.use('/property', propertyroute)
+routemain.use('/api/property', propertyroute)
 
 
 routemain.get('/',function(req, res) {
