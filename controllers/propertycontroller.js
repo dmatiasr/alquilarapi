@@ -1,9 +1,5 @@
-var propertycontroller;
+var PropertyList = require('../db/mockedproperty')
 
-
-propertycontroller.all = function (req, res) {
-	res.send('All')
+exports.all = function (req, res) {
+	return PropertyList;
 }
-
-
-module.exports = propertycontroller;
