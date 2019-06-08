@@ -8,5 +8,9 @@ propertyrouter.get('/', function (req, res) {
 	if (!data) res.status(404).send('Properties not found');
 	res.send(data);
 })
+propertyrouter.post('/', function (req, res) {
+
+	res.send('HICISTE POST');
+})
 
 module.exports = propertyrouter;
