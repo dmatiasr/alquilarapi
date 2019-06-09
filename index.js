@@ -5,6 +5,7 @@ const app = express();
 const os = require("os");
 const hostname = os.hostname();
 const clevercloud = require('./db/clever-cloud.setting')
+const PropertyModel = require('./models/property.model')
 
 // DB Local - DB Prod
 //if (hostname == clevercloud['POSTGRESQL_ADDON_HOST']){
@@ -31,14 +32,25 @@ app.listen(port,function(){
 
 
 // ORM DB connection
-dbsequalize.authenticate()
-  .then(() => {
-    console.log('Connected with Database, Lets go! \n')
-  })
-  .catch(err => {
-    console.log('Something happened guy \n')
+
+dbsequalize.sync({ force: true })
+.then(function(err) {
+
+
+  PropertyModel.create({
+    name        : 'Test', 
+    type        : 'Test', 
+    description : 'Test',
+    lat         : 'Test', 
+    lon         : 'Test' 
+}).success(function(sdepold) {
+  console.log(sdepold.values)
 })
 
+  console.log('It worked!');
+}, function (err) { 
+  console.log('An error occurred while creating the table:', err);
+});
 
 app.use('/', route)
 

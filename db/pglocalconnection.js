@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-
 const dbconf = {
     'engine': 'postgres',
     'pguser':'admin',
@@ -8,10 +7,7 @@ const dbconf = {
     'port':'5432',
     'dbname':'alquilergis'
 };
-
 const pgconn = dbconf['engine']+'://'+dbconf['pguser']+':'+dbconf['pgpass']+'@'+dbconf['host']+':'+dbconf['port']+'/'+dbconf['dbname']
-
-
 const sequelize = new Sequelize(pgconn);
 
 module.exports = sequelize;
