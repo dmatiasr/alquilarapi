@@ -2,24 +2,42 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require("express");
 const app = express();
-const dbsequalize = require('./db/pgconnection')
+const os = require("os");
+const hostname = os.hostname();
+const clevercloud = require('./db/clever-cloud.setting')
 
+// DB Local - DB Prod
+//if (hostname == clevercloud['POSTGRESQL_ADDON_HOST']){
+// const dbsequalize = require('./db/pgprodconnection')
+//}else{
+   const dbsequalize = require('./db/pglocalconnection')
+//}
+
+
+// routes
+const route = require('./routes/mainroute');
+
+
+// Server Configuration
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
 }
-app.listen(port);
+app.listen(port,function(){
+  console.log('')
+  console.log('Working on', hostname +'\n')
+
+});
 
 
-var route = require('./routes/mainroute');
-
-/*dbsequalize.authenticate().then(() => {
-    console.log('Conectado')
+// ORM DB connection
+dbsequalize.authenticate()
+  .then(() => {
+    console.log('Connected with Database, Lets go! \n')
   })
   .catch(err => {
-    console.log('No se conecto')
-  })
-*/
+    console.log('Something happened guy \n')
+})
 
 
 app.use('/', route)

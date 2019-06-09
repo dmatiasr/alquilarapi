@@ -14,7 +14,7 @@ const pgconn = dbconf['engine']+'://'+dbconf['pguser']+':'+dbconf['pgpass']+'@'+
 
 const sequelize = new Sequelize(pgconn);
 
-module.exports = Sequelize;
+module.exports = sequelize;
 
 
 
