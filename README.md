@@ -1,6 +1,7 @@
 # Overview #
 
-    alquilerapi is a API Node based for store information about rent for different places. alquilerapi used postgis for geo-data with clever-cloud tecnology.
+    alquilerapi is a API Node based for store information about rent for different places. 
+    This use postgis for geo-data with clever-cloud tecnology.
 
 
 # how to install dependencies
